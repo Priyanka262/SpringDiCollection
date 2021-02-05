@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd">
+		<!--DI with List(Primitive Data) -->
+	<bean id="javabook" class="com.incapp.SpringDICollectionEx.JavaBook">
+			<property name="name" value="Core Java"/>
+			<property name="price" value="250.0"/>
+			<property name="author" >
+			<list>
+				<value>Priyanka Singh</value>
+				<value>Khushi Singh</value>
+				<value>Poonam Singh</value>
+				<value>Pooja Singh</value>
+				<value>Anamika Singh</value>
+			</list>
+			</property>
+	</bean>
+			<!--DI with List(object Data) -->
+	<bean id="author1" class="com.incapp.SpringDICollectionEx.Author">
+		<property name="name" value="Neha Singh"/>
+		<property name="age" value="22"/>
+		<property name="phone" value="8960451768"/>
+	</bean>
+	<bean id="author2" class="com.incapp.SpringDICollectionEx.Author">
+		<property name="name" value="pooja Singh"/>
+		<property name="age" value="20"/>
+		<property name="phone" value="8960451768"/>
+	</bean>
+	<bean id="javabook2" class="com.incapp.SpringDICollectionEx.JavaBook">
+			<property name="name" value="Core Java"/>
+			<property name="price" value="250.0"/>
+			<property name="author" >
+			<list>
+				<ref bean="author1"></ref>
+				<ref bean="author2"></ref>
+			</list>
+			</property>
+	</bean>
+	
+	<!--DI with Set(Primitive Data) -->
+	<bean id="pythonbook" class="com.incapp.SpringDICollectionEx.PythonBook">
+			<property name="name" value="Python Book"/>
+			<property name="price" value="300.0"/>
+			<property name="author" >
+			<set>
+				<value>Pooja Singh</value>
+				<value>Anamika Singh</value>
+				<value>Anchal</value>
+			</set>
+			</property>
+	</bean>
+	
+	<!--DI with Set(object Data) -->
+	<bean id="pythonbook1" class="com.incapp.SpringDICollectionEx.PythonBook">
+		<property name="name" value="Python Book"/>
+		<property name="price" value="350.00"/>
+		<property name="author">
+			<set>
+				<ref bean="author1"/>
+			</set>
+		</property>
+	</bean>
+	
+		<!--DI with Map(Primitive Data) -->
+	<bean id="springbook" class="com.incapp.SpringDICollectionEx.SpringBook">
+			<property name="name" value="Spring Book"/>
+			<property name="price" value="350.0"/>
+			<property name="author" >
+			<map>
+				<entry key="a1" value="Usha"/>
+				<entry key="a2" value="Usha Singh"/>
+			</map>
+			</property>
+	</bean>
+	
+	<!--DI with Map(Object Data) -->
+	<bean id="springbook1" class="com.incapp.SpringDICollectionEx.SpringBook">
+			<property name="name" value="Spring Book"/>
+			<property name="price" value="400.00"/>
+			<property name="author" >
+			<map>
+				<entry key="a1" value-ref="author1"/>
+				<entry key="a2" value-ref="author2"/>
+			</map>
+			</property>
+	</bean>
+</beans>
